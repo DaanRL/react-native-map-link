@@ -634,4 +634,28 @@ describe('showLocation', () => {
       );
     });
   });
+  describe('truckmeister', () => {
+    it('opens with correct url if source is not provided', () => {
+      verifyThatSettingsLeadToUrl(
+        {
+          latitude,
+          longitude,
+          app: 'truckmeister',
+        },
+        'truckmeister://set-destination?lat=123&lng=234',
+      );
+    });
+
+    it('opens with correct url if address is provided', () => {
+      verifyThatSettingsLeadToUrl(
+        {
+          latitude,
+          longitude,
+          app: 'truckmeister',
+          address: '123 Main St, New York, NY 10012'
+        },
+        'truckmeister://search-destination?query=123%20Main%20St%2C%20New%20York%2C%20NY%2010012',
+      );
+    })
+  });
 });

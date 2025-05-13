@@ -567,6 +567,12 @@ export const generateMapUrl = ({
         url = `https://share.here.com/r/${sourceLat && sourceLng ? `${sourceLat},${sourceLng}/` : ''}${lat},${lng}?m=d`;
       }
       break;
+    case 'truckmeister':
+      if (address) {
+        url = `${prefixes.truckmeister}search-destination?query=${address}`;
+      } else {
+        url = `${prefixes.truckmeister}set-destination?lat=${lat}&lng=${lng}`;
+      }
   }
 
   return url;

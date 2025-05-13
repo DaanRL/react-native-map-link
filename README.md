@@ -85,6 +85,7 @@ Just add this in your `Info.plist` depending on which apps you'd like to support
     <string>dgis</string>
     <string>lftgpas</string>
     <string>sygic</string>
+    <string>truckmeister</string>
 </array>
 ```
 
@@ -204,6 +205,10 @@ You can do so by coping the `<queries>` statement below, and pasting it in the t
   <intent>
     <action android:name="android.intent.action.VIEW" />
     <data android:scheme="com.sygic.aura" />
+  </intent>
+  <intent>
+    <action android:name="android.intent.action.VIEW" />
+    <data android:scheme="truckmeister" />
   </intent>
 </queries>
 ```
