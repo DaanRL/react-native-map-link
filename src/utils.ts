@@ -568,11 +568,16 @@ export const generateMapUrl = ({
       }
       break;
     case 'truckmeister':
-      if (address) {
-        url = `${prefixes.truckmeister}search-destination?query=${address}`;
-      } else {
+      if (isIOS) {
         url = `${prefixes.truckmeister}set-destination?lat=${lat}&lng=${lng}`;
+      } else {
+        if (address) {
+          url = `geo:${lat},${lng}?q=${address}`;
+        } else {
+          url = `geo:${lat},${lng}`;
+        }
       }
+      break;
   }
 
   return url;
