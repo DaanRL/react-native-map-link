@@ -569,7 +569,11 @@ export const generateMapUrl = ({
       break;
     case 'truckmeister':
       if (isIOS) {
-        url = `${prefixes.truckmeister}set-destination?lat=${lat}&lng=${lng}`;
+        if (address) {
+          url = `truckmeister://search-destination?query=${address}`;
+        } else {
+          url = `truckmeister://set-destination?lat=${lat}&lng=${lng}`;
+        }
       } else {
         if (address) {
           url = `geo:${lat},${lng}?q=${address}`;
